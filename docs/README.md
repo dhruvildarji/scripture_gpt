@@ -9,10 +9,14 @@ Some of the main packages used for this project are pytorch 2.1.0, [TensorRT-LLM
 ## Run the model
 
 To run the pre-built model:
-```Script/run.bat "It is the humane way: the other course Will prove too bloody, and the end of it Unknown to the beginning." "finetuned-gpt"```
+```
+Script/run.bat "It is the humane way: the other course Will prove too bloody, and the end of it Unknown to the beginning." "finetuned-gpt"
+```
 
 To build your own model with the provided dataset:
-```Script/build.bat "It is the humane way: the other course Will prove too bloody, and the end of it Unknown to the beginning." "finetuned-gpt"```
+```
+Script/build.bat "It is the humane way: the other course Will prove too bloody, and the end of it Unknown to the beginning." "finetuned-gpt"
+```
 
 
 ## Dataset
