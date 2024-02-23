@@ -4,12 +4,15 @@ This directory contains the stuff for building static html documentations based 
 
 ## Requirements
 
-[TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM) v0.7.1
+Some of the main packages used for this project are pytorch 2.1.0, [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM) v0.7.1. It is recommended to create a new environment and install the packages.
 
 ## Run the model
 
-Add the script for running the model
+To run the pre-built model:
+```Script/run.bat "It is the humane way: the other course Will prove too bloody, and the end of it Unknown to the beginning." "finetuned-gpt"```
 
+To build your own model with the provided dataset:
+```Script/build.bat "It is the humane way: the other course Will prove too bloody, and the end of it Unknown to the beginning." "finetuned-gpt"```
 
 
 ## Dataset
@@ -18,29 +21,22 @@ The dataset consists of three scriptures: Bible, Quran and Bhagavad Gita `data`.
 -<b> Preprocessing: </b>Raw data is processed using `Script/cleanup.py` to remove unwanted characters.</br>
 -<b> Train-test split: </b>Processed data is split into train and test in the ratio of 9:1 using `Script/create_test_train.py`.</br>
 
+The processed data is stored in files `GBQ_train_split.txt` and `GBQ_test_split.txt`
 
 ## Foundation model
 
 The model used for training is GPT2, with weights downloaded from [HuggingFace-GPT2](https://huggingface.co/openai-community/gpt2)
 
 
+
 ## Build the model
+
 
 ## Evaluate
 
+
 ## Results
+
 
 ## Contributors
 
-
-## Preview the docs locally
-
-The basic way to preview the docs is using the `http.serve`:
-
-```sh
-cd build/html
-
-python3 -m http.server 8081
-```
-
-And you can visit the page with your web browser with url `http://localhost:8081`.
