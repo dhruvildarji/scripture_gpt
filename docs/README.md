@@ -30,7 +30,8 @@ The processed data is stored in files `GBQ_train_split.txt` and `GBQ_test_split.
 
 ## Foundation model
 
-The model used for training is GPT2, with weights downloaded from [HuggingFace-GPT2](https://huggingface.co/openai-community/gpt2)
+The model used for training is GPT2, with weights downloaded from [HuggingFace-GPT2](https://huggingface.co/openai-community/gpt2). 
+To download the foundation model, from hugging face, create a hugging face account followed by generating the token
 
 
 
