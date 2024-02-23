@@ -1,9 +1,12 @@
-# Docs
+# ScriptureGPT
 
 This directory contains the stuff for building static html documentations based on [sphinx](https://www.sphinx-doc.org/en/master/).
 
+## Requirements
 
-## Build the docs
+## Dataset
+
+## Build the model
 Firstly, install the sphinx:
 
 ```sh
@@ -25,6 +28,12 @@ make html
 ```
 
 And the finally the generated html pages will locate in the `build/html` directory.
+
+## Evaluate
+
+## Results
+
+## Contributors
 
 
 ## Preview the docs locally
