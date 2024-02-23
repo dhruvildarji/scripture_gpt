@@ -22,6 +22,7 @@ Script/build.bat "It is the humane way: the other course Will prove too bloody, 
 ## Dataset
 
 The dataset consists of three scriptures: Bible, Quran and Bhagavad Gita `data`.</br>
+
 -<b> Preprocessing: </b>Raw data is processed using `Script/cleanup.py` to remove unwanted characters.</br>
 -<b> Train-test split: </b>Processed data is split into train and test in the ratio of 9:1 using `Script/create_test_train.py`.</br>
 
