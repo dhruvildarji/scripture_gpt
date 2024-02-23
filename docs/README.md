@@ -4,30 +4,23 @@ This directory contains the stuff for building static html documentations based 
 
 ## Requirements
 
+[TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM) v0.7.1
+
 ## Dataset
 
+The dataset consists of three scriptures: Bible, Quran and Bhagavad Gita `data`. The scriptures are downloaded as text document, and preprocessed using the following script
+
+`Script/cleanup.py`
+
+
+
+, and futher divided into set of train and test into 90-10 
+
+## Foundation model
+
+The model used for training is GPT2, with weights downloaded from [HuggingFace-GPT2](https://huggingface.co/openai-community/gpt2)
+
 ## Build the model
-Firstly, install the sphinx:
-
-```sh
-apt-get install python3-sphinx doxygen python3-pip graphviz
-```
-
-Secondly, install the packages:
-
-```sh
-python3 -m pip install -r ./requirements.txt
-```
-
-And then, make the docs:
-
-```sh
-doxygen Doxygen # build C++ docs
-
-make html
-```
-
-And the finally the generated html pages will locate in the `build/html` directory.
 
 ## Evaluate
 
