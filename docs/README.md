@@ -9,9 +9,9 @@ This directory contains the stuff for building static html documentations based 
 ## Dataset
 
 The dataset consists of three scriptures: Bible, Quran and Bhagavad Gita `data`.
--<b> Preprocessing <b>
+-<b> Preprocessing </b>
 Raw data is processed using `Script/cleanup.py` to remove unwanted characters.
--<b> Train-test split <b>
+-<b> Train-test split </b>
 Processed data is split into train and test in the ratio of 9:1 using `Script/create_test_train.py`.
 
 
