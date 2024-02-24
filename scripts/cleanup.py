@@ -1,5 +1,5 @@
-
 import re
+import argparse
 
 def clean_text(text):
     # This regex will match any character that is NOT a letter, number, or space
@@ -24,13 +24,11 @@ def process_file(input_file_path, output_file_path):
     except Exception as e:
         print(f"Error: {e}")
 
-out_file = r"D:\gpt2\TensorRT-LLM\examples\gpt\data\train_out.txt"
-
-process_file(r"D:\gpt2\TensorRT-LLM\examples\gpt\data\train.txt", out_file)
-f = open(out_file, encoding="UTF-8")
-
-text = f.read()
-
-token = len(sorted(set(text)))
-print("num of tokens", token)
-print(len(text))
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Main script")
+    parser.add_argument("--input_file_path", type=str, help="Path to the input file for processing", required=True)
+    parser.add_argument("--output_file_path", type=str, help="Path to save the processed output", required=True)
+    args = parser.parse_args()
+    
+    process_file(args.input_file_path, args.output_file_path)
+    print(f'Processed data at {args.output_file_path})
