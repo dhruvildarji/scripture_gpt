@@ -146,11 +146,11 @@ We have also tried to train Geeta, Quran and Bible in singular file. The file is
 
 Here are some results of train and val losses (You can visualize this in TensorBoard in VS code)
 
-![1708745797963](image/ReadMe/1708745797963.png)
+![1708745797963](image/1708745797963.png)
 
-![1708745817756](image/ReadMe/1708745817756.png)
+![1708745817756](image/1708745817756.png)
 
-![1708745838517](image/ReadMe/1708745838517.png)
+![1708745838517](image/1708745838517.png)
 
 ## Data Handling
 
