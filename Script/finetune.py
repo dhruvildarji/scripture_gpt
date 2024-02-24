@@ -118,10 +118,10 @@ def train(model, tokenizer,
 
 # Argument parsing
 parser = argparse.ArgumentParser(description="GPT-2 Training")
-parser.add_argument("--epochs", type=int, default=epochs, help="Number of epochs for training")
-parser.add_argument("--output_dir", type=str, default=output_dir, help="Directory to save the trained model")
-parser.add_argument("--train_file_path", type=str, default=train_file_path, help="Path to the training dataset file")
-parser.add_argument("--eval_file_path", type=str, default=eval_file_path, help="Path to the evaluation dataset file")
+parser.add_argument("--epochs", type=int, default=200, help="Number of epochs for training")
+parser.add_argument("--output_dir", type=str, default="./GBQ-001", help="Directory to save the trained model")
+parser.add_argument("--train_file_path", type=str, default="./data/GBQ_train_split.txt", help="Path to the training dataset file")
+parser.add_argument("--eval_file_path", type=str, default="./data/GBQ_test_split.txt", help="Path to the evaluation dataset file")
 args = parser.parse_args()
 
 train(model, tokenizer, epochs=args.epochs, output_dir=args.output_dir, train_file_path=args.train_file_path, eval_file_path=args.eval_file_path)
