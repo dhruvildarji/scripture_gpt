@@ -1,18 +1,12 @@
 import pandas as pd
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 import numpy as np
-import random
 import torch
 from torch.utils.data import Dataset, DataLoader
-from transformers import GPT2Tokenizer, GPT2LMHeadModel, AdamW, get_linear_schedule_with_warmup
+from transformers import GPT2Tokenizer, GPT2LMHeadModel
 from transformers import TextDataset, DataCollatorForLanguageModeling
 from transformers import Trainer, TrainingArguments, SchedulerType
-from tqdm import tqdm, trange
 import torch.nn.functional as F
-from create_test_train import dataset
-import csv
-import lyrics1
-import os
 import argparse
 
 
@@ -43,7 +37,7 @@ def train(model, tokenizer,
           batch_size=4, epochs=100,
           output_dir=r"./GBQ-001",
           train_file_path=r"./data/GBQ_train_split.txt",
-          eval_file_path=r"./data/GBQ_test_split.txt"
+          eval_file_path=r"./data/GBQ_test_split.txt",
           ):
     """
     Function to train the GPT-2 model.
@@ -80,7 +74,7 @@ def train(model, tokenizer,
 
     # Training arguments
     training_args = TrainingArguments(
-        output_dir=output_dir,
+        output_dir=r"./models/tmp_out",
         overwrite_output_dir=True,
         num_train_epochs=epochs,
         per_device_train_batch_size=batch_size,
@@ -95,7 +89,7 @@ def train(model, tokenizer,
 
     # Set learning rate scheduler
     training_args = training_args.set_lr_scheduler(name="cosine", warmup_ratio=0.05, num_epochs=epochs, warmup_steps=20)
-
+    print(training_args)
     # Trainer initialization
     trainer = Trainer(
         model=model,
@@ -113,16 +107,10 @@ def train(model, tokenizer,
 
 # Argument parsing
 parser = argparse.ArgumentParser(description="Finetune Model")
-parser.add_argument("--epochs", type=int, default=200, help="Number of epochs for training")
+parser.add_argument("--epochs", type=int, default=20, help="Number of epochs for training")
 parser.add_argument("--output_dir", type=str, default="./Bible_001", help="Directory to save the trained model")
 parser.add_argument("--train_file_path", type=str, default="./data/Bible/bible_train_split.txt", help="Path to the training dataset file")
-parser.add_argument("--eval_file_path", type=str, default="../data/Bible/bible_test_split.txt", help="Path to the evaluation dataset file")
+parser.add_argument("--eval_file_path", type=str, default="./data/Bible/bible_test_split.txt", help="Path to the evaluation dataset file")
 args = parser.parse_args()
 
-epochs=args.epochs
-output_dir=args.output_dir
-train_file_path=args.train_file_path
-eval_file_path=args.eval_file_path
-
-
-train(model, tokenizer, epochs, output_dir, train_file_path, eval_file_path)
+train(model, tokenizer, epochs=args.epochs, output_dir=args.output_dir, train_file_path=args.train_file_path, eval_file_path=args.eval_file_path)

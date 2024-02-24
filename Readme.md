@@ -56,7 +56,8 @@ Please use any of this and put it in finetune.py script.
 Here is how you should run finetune.py ideally
 
 ```
-python script/finetune.py --epochs=20 --output_dir=./models/output_bible --train_file_path=./data/Bible/bible_train_split.txt --eval_file_path=./data/Bible_test_split.txt
+cd scripture_gpt
+python scripts/finetune.py --epochs=20 --output_dir=./models/output_bible --train_file_path=./data/Bible/bible_train_split.txt --eval_file_path=./data/Bible/Bible_test_split.txt
 ```
 
 It should give you generated finetuned model in models/ directory
