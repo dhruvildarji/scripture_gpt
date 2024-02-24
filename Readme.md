@@ -8,6 +8,8 @@ https://www.nvidia.com/en-us/ai-data-science/generative-ai/rtx-developer-contest
 
 The contest ask is to develop it for windows only.
 
+Sample Video:  https://drive.google.com/file/d/1djR_H3Cv-vOf2mWC8rfGqTQuRjA7IVIC/view?usp=drive_link
+
 # Usage
 
 ## Clone the repository
