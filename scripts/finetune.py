@@ -40,10 +40,9 @@ def pack_tensor(new_tensor, packed_tensor, max_seq_len):
         return packed_tensor, True, None
 
 def train(model, tokenizer,
-          batch_size=4, epochs=100, lr=2e-5,
-          max_seq_len=400, warmup_steps=200,
-          gpt2_type="gpt2", output_dir=r"./GBQ-001", output_prefix="wreckgar",
-          test_mode=False, save_model_on_epoch=True, train_file_path=r"./data/GBQ_train_split.txt",
+          batch_size=4, epochs=100,
+          output_dir=r"./GBQ-001",
+          train_file_path=r"./data/GBQ_train_split.txt",
           eval_file_path=r"./data/GBQ_test_split.txt"
           ):
     """
@@ -54,14 +53,10 @@ def train(model, tokenizer,
         tokenizer (PreTrainedTokenizer): Tokenizer for preprocessing the text data.
         batch_size (int, optional): Batch size for training. Defaults to 4.
         epochs (int, optional): Number of epochs for training. Defaults to 100.
-        lr (float, optional): Learning rate for the optimizer. Defaults to 2e-5.
-        max_seq_len (int, optional): Maximum sequence length allowed. Defaults to 400.
         warmup_steps (int, optional): Number of warmup steps for the learning rate scheduler. Defaults to 200.
-        gpt2_type (str, optional): Type of GPT-2 model to use. Defaults to "gpt2".
         output_dir (str, optional): Directory to save the trained model. Defaults to "./GBQ-001".
-        output_prefix (str, optional): Prefix for the output files. Defaults to "wreckgar".
-        test_mode (bool, optional): Flag to indicate if the model is in test mode. Defaults to False.
-        save_model_on_epoch (bool, optional): Flag to indicate whether to save the model at the end of each epoch. Defaults to True.
+        eval_file_path (str, optional): file path of testing dataset
+        train_file_path (str, optional): file path of training dataset
     """
     
     # Dataset for training
@@ -117,11 +112,17 @@ def train(model, tokenizer,
     trainer.save_model(f"{output_dir}")
 
 # Argument parsing
-parser = argparse.ArgumentParser(description="GPT-2 Training")
+parser = argparse.ArgumentParser(description="Finetune Model")
 parser.add_argument("--epochs", type=int, default=200, help="Number of epochs for training")
-parser.add_argument("--output_dir", type=str, default="./GBQ-001", help="Directory to save the trained model")
-parser.add_argument("--train_file_path", type=str, default="./data/GBQ_train_split.txt", help="Path to the training dataset file")
-parser.add_argument("--eval_file_path", type=str, default="./data/GBQ_test_split.txt", help="Path to the evaluation dataset file")
+parser.add_argument("--output_dir", type=str, default="./Bible_001", help="Directory to save the trained model")
+parser.add_argument("--train_file_path", type=str, default="./data/Bible/bible_train_split.txt", help="Path to the training dataset file")
+parser.add_argument("--eval_file_path", type=str, default="../data/Bible/bible_test_split.txt", help="Path to the evaluation dataset file")
 args = parser.parse_args()
 
-train(model, tokenizer, epochs=args.epochs, output_dir=args.output_dir, train_file_path=args.train_file_path, eval_file_path=args.eval_file_path)
+epochs=args.epochs
+output_dir=args.output_dir
+train_file_path=args.train_file_path
+eval_file_path=args.eval_file_path
+
+
+train(model, tokenizer, epochs, output_dir, train_file_path, eval_file_path)
