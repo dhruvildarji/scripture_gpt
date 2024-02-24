@@ -10,6 +10,14 @@ The contest ask is to develop it for windows only.
 
 # Usage
 
+## Clone the repository
+
+```
+git clone https://github.com/dhruvildarji/scripture_gpt.git
+cd scripture_gpt
+git submodule update
+```
+
 ## Installing TensorRT-LLM
 
 This is the first and most important step.
