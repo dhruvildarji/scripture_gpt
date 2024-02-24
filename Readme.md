@@ -14,6 +14,7 @@ The contest ask is to develop it for windows only.
 
 ```
 git clone https://github.com/dhruvildarji/scripture_gpt.git
+git checkout master
 cd scripture_gpt
 git submodule update
 ```
